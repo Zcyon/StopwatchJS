@@ -8,7 +8,14 @@ var Stopwatch = function () {
   };
   
   this.pause = function () {
-
+    if (running) {
+      p_time = new Date();
+      p_time = p_time.getTime();
+    }
+  };
+  
+  this.resume = function () {
+  
   };
   
   this.stop = function () {
@@ -19,7 +26,13 @@ var Stopwatch = function () {
   };
   
   this.lap = function () {
-
+    esto.pause();
+    laps[laps.length] = esto.getLapTime();
+    return laps[laps.length - 1];
+  };
+  
+  this.getLap = function (l) {
+    return laps[l];
   };
   
   this.restart = function () {
@@ -31,5 +44,9 @@ var Stopwatch = function () {
   
   this.getElapsedTime = function () {
     return f_time - i_time - p_time;
+  };
+  
+  this.getLapTime = function () {
+    return p_time - i_time;
   };
 };
