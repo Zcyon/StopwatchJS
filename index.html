@@ -8,7 +8,11 @@
     <script type="text/javascript">
       var sw = new Stopwatch();
       sw.start();
-      console.log(sw.stop());
+      
+      setInterval(function () {
+        console.log(sw.lap());
+      }, 1000);
+      
     </script>
   </body>
   
